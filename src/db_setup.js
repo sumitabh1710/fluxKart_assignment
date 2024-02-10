@@ -1,16 +1,13 @@
 const { Pool } = require("pg");
 require("dotenv").config();
 
+const connectionString =
+  "postgres://sumitabh1710:KUsc5EefPcrLiubMzbBm1qcYPrNC3lIO@dpg-cn3kdr5jm4es73blhbvg-a/fluxcart_contact";
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: process.env.DB_PORT,
+  connectionString: connectionString,
 });
 
 async function setupDatabase() {
-
   const enumCheckQuery = `
     SELECT EXISTS (
         SELECT 1
